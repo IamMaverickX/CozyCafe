@@ -1,218 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cozy Café</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f8f4ee;
-      color: #3b2f2f;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #6f4e37;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-    }
-
-    nav a {
-      color: white;
-      margin-right: 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    h1, h2 {
-      margin-bottom: 15px;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .menu-item {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .menu-item img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .menu-item div {
-      padding: 12px;
-      font-weight: bold;
-    }
-
-    footer {
-      background: #2f4f2f;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cozy Corner Café</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-brown: #8B4513;
+            --light-cream: #FFF8E1;
+            --accent-green: #556B2F;
+            --dark-brown: #5D4037;
+            --text-color: #3E2723;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--light-cream);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-brown);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: var(--light-cream);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light-cream);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--accent-green);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-brown);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-green);
+        }
+        
+        /* Home Page Sections */
+        .welcome-section, .about-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .popular-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .item-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .item-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .item-info {
+            padding: 1.5rem;
+        }
+        
+        .item-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-brown);
+        }
+        
+        .price {
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Menu Page */
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .menu-item-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .menu-item-info {
+            padding: 1rem;
+            flex: 1;
+        }
+        
+        .menu-item-info h4 {
+            color: var(--primary-brown);
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-cream);
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--accent-green);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-brown);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-brown);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-cream);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--light-cream);
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-brown);
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Page Content */
+        .page-content {
+            min-height: calc(100vh - 350px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-brown);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 99;
+            }
+            
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .popular-items, .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .menu-item {
+                flex-direction: column;
+            }
+            
+            .menu-item-img {
+                width: 100%;
+                height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .popular-items, .menu-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-coffee"></i>
+                Cozy Corner Café
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- Main Content -->
+    <main class="page-content">
+        <!-- Home Page -->
+        <section id="home" class="page-section">
+            <div class="hero">
+                <div class="container">
+                    <h1>Welcome to The Cozy Corner Café</h1>
+                    <p>A cozy spot for delicious coffee, fresh pastries, and good vibes. Perfect for studying, working, or catching up with friends.</p>
+                    <a href="#menu" class="btn">View Our Menu</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="welcome-section">
+                    <h2 class="section-title">Our Café</h2>
+                    <p>Located in the heart of Cadillac, MI, The Cozy Corner Café offers a warm and inviting atmosphere where you can enjoy premium coffee, delicious food, and a relaxing environment. Whether you're a student looking for a study spot, a professional needing a break, or a family wanting to enjoy a treat, we have something for everyone.</p>
+                    <p>We believe in using high-quality ingredients, supporting local suppliers, and creating a welcoming space for our community.</p>
+                </div>
+                
+                <h2 class="section-title">Popular Items</h2>
+                <div class="popular-items">
+                    <!-- Popular items will be loaded via JavaScript -->
+                </div>
+            </div>
+        </section>
 
-<section id="home">
-  <h1>Welcome to Cozy Café</h1>
-  <p>A cozy spot for coffee, food, and chill vibes.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cafe.jpg" alt="Cafe">
-</section>
+        <!-- About Page -->
+        <section id="about" class="page-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                <div class="about-content">
+                    <p>The Cozy Corner Café began as a dream to create a welcoming space where people could enjoy excellent coffee and food in a relaxed environment. Founded in 2018, we've grown from a small coffee shop to a beloved community hub in Cadillac.</p>
+                    
+                    <p>Our mission is simple: to serve delicious, high-quality food and drinks while fostering connections within our community. We source our coffee beans from ethical suppliers, bake our pastries fresh daily, and prepare our meals with locally-sourced ingredients whenever possible.</p>
+                    
+                    <h3>What We Believe In</h3>
+                    <ul style="margin-left: 20px; margin-top: 15px;">
+                        <li>Quality ingredients make the best products</li>
+                        <li>Every customer should feel welcome and valued</li>
+                        <li>Sustainability matters - we use eco-friendly packaging</li>
+                        <li>Supporting local businesses and farmers</li>
+                        <li>Creating a space where everyone can relax and recharge</li>
+                    </ul>
+                    
+                    <p>Come visit us and experience the Cozy Corner difference. We can't wait to serve you!</p>
+                </div>
+            </div>
+        </section>
 
-<section id="about">
-  <h1>About Cozy Café</h1>
-  <p>
-    Cozy Café is a warm and welcoming café for students, workers, families, and visitors.
-    We serve quality food, fresh drinks, and provide a calm space to relax or work.
-  </p>
-</section>
+        <!-- Menu Page -->
+        <section id="menu" class="page-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Our Menu</h2>
+                
+                <div class="menu-category">
+                    <h3 style="color: var(--primary-brown); margin-bottom: 1rem; border-bottom: 2px solid var(--light-cream); padding-bottom: 8px;">Breakfast & Pastries</h3>
+                    <div class="menu-items" id="breakfast-items">
+                        <!-- Breakfast items will be loaded via JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3 style="color: var(--primary-brown); margin-bottom: 1rem; border-bottom: 2px solid var(--light-cream); padding-bottom: 8px;">Lunch & Savories</h3>
+                    <div class="menu-items" id="lunch-items">
+                        <!-- Lunch items will be loaded via JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3 style="color: var(--primary-brown); margin-bottom: 1rem; border-bottom: 2px solid var(--light-cream); padding-bottom: 8px;">Drinks & Desserts</h3>
+                    <div class="menu-items" id="drinks-items">
+                        <!-- Drinks items will be loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="menu">
-  <h1>Our Menu</h1>
+        <!-- Contact Page -->
+        <section id="contact" class="page-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Visit Our Café</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> 8834 E 34 Rd #131, Cadillac, MI 49601</p>
+                            <p><i class="fas fa-phone"></i> +1 (568) 828-9017</p>
+                            <p><i class="fas fa-envelope"></i> hello@cozycornercafe.com</p>
+                            <p><i class="fas fa-clock"></i> Open Daily: 7:00 AM - 9:00 PM</p>
+                        </div>
+                        
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <h2>Breakfast & Pastries</h2>
-  <div class="menu-grid">
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Croissant-Petr_Kratochvil.jpg">
-      <div>Butter Croissant – $200</div>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Cozy Corner Café</h3>
+                    <p>A cozy spot for coffee, food, and chill vibes. Perfect for students, professionals, and families looking for a welcoming atmosphere.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#menu">Our Menu</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Visit Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 8834 E 34 Rd #131</p>
+                    <p>Cadillac, MI 49601</p>
+                    <p><i class="fas fa-phone"></i> +1 (568) 828-9017</p>
+                    <p><i class="fas fa-envelope"></i> hello@cozycornercafe.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Cozy Corner Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Chocolate_croissant.jpg">
-      <div>Chocolate Croissant – $500</div>
-    </div>
+    <script>
+        // Menu data with image URLs
+        const menuData = {
+            popular: [
+                { name: "Butter Croissant", price: "$2.00", img: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Chocolate Croissant", price: "$3.50", img: "https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Beef Burger", price: "$5.00", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Cappuccino", price: "$4.50", img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+            ],
+            breakfast: [
+                { name: "Butter Croissant", price: "$2.00", img: "https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Chocolate Croissant", price: "$3.50", img: "https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Cinnamon Roll", price: "$3.00", img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Banana Bread Slice", price: "$4.00", img: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Blueberry Muffin", price: "$4.20", img: "https://images.unsplash.com/photo-1576866209830-589e1bfbaa4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Cheese Danish", price: "$4.40", img: "https://images.unsplash.com/photo-1624353365286-3f8d62dadadf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Toast & Jam", price: "$3.90", img: "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Pancake Stack", price: "$8.00", img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+            ],
+            lunch: [
+                { name: "Club Sandwich", price: "$5.00", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Chicken Sandwich", price: "$6.20", img: "https://images.unsplash.com/photo-1606755962773-d324c0dc75b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Veggie Sandwich", price: "$5.10", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Beef Burger", price: "$5.00", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Chicken Burger", price: "$6.80", img: "https://images.unsplash.com/photo-1606755962773-d324c0dc75b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "French Fries", price: "$4.50", img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Meat Pie", price: "$5.80", img: "https://images.unsplash.com/photo-1606755962773-d324c0dc75b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Sausage Roll", price: "$5.70", img: "https://images.unsplash.com/photo-1603064752734-4c48eff53d05?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Spring Rolls", price: "$4.20", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+            ],
+            drinks: [
+                { name: "Cappuccino", price: "$4.50", img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Latte", price: "$5.00", img: "https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Espresso", price: "$3.50", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Iced Coffee", price: "$4.75", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Chocolate Cake", price: "$6.50", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                { name: "Cheesecake", price: "$7.00", img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+            ]
+        };
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cinnamon_rolls.jpg">
-      <div>Cinnamon Roll – $300</div>
-    </div>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const pageSections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('nav a');
+        const contactForm = document.getElementById('contactForm');
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Banana_bread.jpg">
-      <div>Banana Bread Slice – $1,000</div>
-    </div>
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load menu items
+            loadPopularItems();
+            loadBreakfastItems();
+            loadLunchItems();
+            loadDrinksItems();
+            
+            // Set up navigation
+            setupNavigation();
+            
+            // Show home page by default
+            showPage('home');
+        });
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Blueberry_muffins.jpg">
-      <div>Blueberry Muffin – $1,200</div>
-    </div>
+        // Load popular items on home page
+        function loadPopularItems() {
+            const popularContainer = document.querySelector('.popular-items');
+            let html = '';
+            
+            menuData.popular.forEach(item => {
+                html += `
+                    <div class="item-card">
+                        <img src="${item.img}" alt="${item.name}" class="item-img">
+                        <div class="item-info">
+                            <h3>${item.name}</h3>
+                            <p class="price">${item.price}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            popularContainer.innerHTML = html;
+        }
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Cheese_danish.jpg">
-      <div>Cheese Danish – $1,400</div>
-    </div>
+        // Load breakfast items
+        function loadBreakfastItems() {
+            const container = document.getElementById('breakfast-items');
+            let html = '';
+            
+            menuData.breakfast.forEach(item => {
+                html += `
+                    <div class="menu-item">
+                        <img src="${item.img}" alt="${item.name}" class="menu-item-img">
+                        <div class="menu-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="price">${item.price}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Toast_with_jam.jpg">
-      <div>Toast & Jam – $900</div>
-    </div>
+        // Load lunch items
+        function loadLunchItems() {
+            const container = document.getElementById('lunch-items');
+            let html = '';
+            
+            menuData.lunch.forEach(item => {
+                html += `
+                    <div class="menu-item">
+                        <img src="${item.img}" alt="${item.name}" class="menu-item-img">
+                        <div class="menu-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="price">${item.price}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Pancakes_with_syrup.jpg">
-      <div>Pancake Stack – $800</div>
-    </div>
-  </div>
+        // Load drinks items
+        function loadDrinksItems() {
+            const container = document.getElementById('drinks-items');
+            let html = '';
+            
+            menuData.drinks.forEach(item => {
+                html += `
+                    <div class="menu-item">
+                        <img src="${item.img}" alt="${item.name}" class="menu-item-img">
+                        <div class="menu-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="price">${item.price}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
 
-  <h2 style="margin-top:30px;">Lunch & Snacks</h2>
-  <div class="menu-grid">
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Club_sandwich.png">
-      <div>Club Sandwich – $500</div>
-    </div>
+        // Set up navigation
+        function setupNavigation() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Navigation link clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    
+                    // Hide mobile menu
+                    navMenu.classList.remove('show');
+                    
+                    // Show selected page
+                    showPage(pageId);
+                    
+                    // Update active link
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Chicken_sandwich.jpg">
-      <div>Chicken Sandwich – $200</div>
-    </div>
+        // Show specific page
+        function showPage(pageId) {
+            // Hide all pages
+            pageSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
 
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Veggie_sandwich.jpg">
-      <div>Veggie Sandwich – $100</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Cheeseburger.jpg">
-      <div>Beef Burger – $500</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Chicken_burger.jpg">
-      <div>Chicken Burger – $800</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/French_fries.jpg">
-      <div>French Fries – $500</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Meat_pie.jpg">
-      <div>Meat Pie – $800</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sausage_roll.jpg">
-      <div>Sausage Roll – $700</div>
-    </div>
-
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Spring_rolls.jpg">
-      <div>Spring Rolls – $200</div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h1>Contact Us</h1>
-  <p><strong>Address:</strong> 8834 E 34 Rd #131, Cadillac, MI 49601</p>
-  <p><strong>Phone:</strong> +1 (56) 8828 9017</p>
-</section>
-
-<footer>
-  Cozy Café • Good food, good mood ☕
-</footer>
-
+        // Contact form submission
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // In a real application, you would send this data to a server
+                // For this demo, we'll just show an alert
+                alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} as soon as possible.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+    </script>
 </body>
 </html>
