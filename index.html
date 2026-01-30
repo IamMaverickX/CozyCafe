@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cozy Café</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f8f4ee;
+      color: #3b2f2f;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #6f4e37;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2 {
+      margin-bottom: 15px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .menu-item div {
+      padding: 12px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #2f4f2f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home">
+  <h1>Welcome to Cozy Café</h1>
+  <p>A cozy spot for coffee, food, and chill vibes.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cafe.jpg" alt="Cafe">
+</section>
+
+<section id="about">
+  <h1>About Cozy Café</h1>
+  <p>
+    Cozy Café is a warm and welcoming café for students, workers, families, and visitors.
+    We serve quality food, fresh drinks, and provide a calm space to relax or work.
+  </p>
+</section>
+
+<section id="menu">
+  <h1>Our Menu</h1>
+
+  <h2>Breakfast & Pastries</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Croissant-Petr_Kratochvil.jpg">
+      <div>Butter Croissant – $200</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Chocolate_croissant.jpg">
+      <div>Chocolate Croissant – $500</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cinnamon_rolls.jpg">
+      <div>Cinnamon Roll – $300</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Banana_bread.jpg">
+      <div>Banana Bread Slice – $1,000</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Blueberry_muffins.jpg">
+      <div>Blueberry Muffin – $1,200</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Cheese_danish.jpg">
+      <div>Cheese Danish – $1,400</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Toast_with_jam.jpg">
+      <div>Toast & Jam – $900</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Pancakes_with_syrup.jpg">
+      <div>Pancake Stack – $800</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:30px;">Lunch & Snacks</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Club_sandwich.png">
+      <div>Club Sandwich – $500</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Chicken_sandwich.jpg">
+      <div>Chicken Sandwich – $200</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Veggie_sandwich.jpg">
+      <div>Veggie Sandwich – $100</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Cheeseburger.jpg">
+      <div>Beef Burger – $500</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Chicken_burger.jpg">
+      <div>Chicken Burger – $800</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/French_fries.jpg">
+      <div>French Fries – $500</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Meat_pie.jpg">
+      <div>Meat Pie – $800</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sausage_roll.jpg">
+      <div>Sausage Roll – $700</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Spring_rolls.jpg">
+      <div>Spring Rolls – $200</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h1>Contact Us</h1>
+  <p><strong>Address:</strong> 8834 E 34 Rd #131, Cadillac, MI 49601</p>
+  <p><strong>Phone:</strong> +1 (56) 8828 9017</p>
+</section>
+
+<footer>
+  Cozy Café • Good food, good mood ☕
+</footer>
+
+</body>
+</html>
